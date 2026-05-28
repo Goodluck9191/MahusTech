@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MahusTech – Tanzania's premier electronics, ICT, and security systems company. Specializing in electric fences, CCTV cameras, gate motors, alarm systems, video doorbells, GSM alarms, and fire alarm solutions." />
+  <meta name="keywords" content="MahusTech, Tanzania security systems, CCTV cameras Tanzania, electric fence, gate motor, alarm system, fire alarm, GSM alarm, video doorbell" />
+  <meta name="author" content="MahusTech" />
+  <meta property="og:title" content="MahusTech | Electronics & Security Systems Tanzania" />
+  <meta property="og:description" content="Professional security and electronics solutions in Tanzania. CCTV, electric fences, gate motors, alarm systems & more." />
+  <title>MahusTech | Electronics & Security Systems Tanzania</title>
+
+  <style>
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:       #C9A84C;
+      --gold-light: #E8C96B;
+      --gold-dim:   #8B6E2E;
+      --black:      #0A0A0A;
+      --black-soft: #111111;
+      --black-card: #161616;
+      --black-line: #222222;
+      --white:      #FAFAFA;
+      --white-dim:  #AAAAAA;
+      --font-head:  'Georgia', 'Times New Roman', serif;
+      --font-body:  'Trebuchet MS', 'Segoe UI', sans-serif;
+      --nav-h:      72px;
+      --radius:     6px;
+      --trans:      0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--gold); color: var(--black); }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
+
+    /* ─── UTILITIES ─── */
+    .container { width: min(1200px, 92vw); margin: 0 auto; }
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.15;
+      color: var(--white);
+    }
+    .section-title span { color: var(--gold); }
+    .divider {
+      width: 56px; height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 1.2rem 0 2rem;
+    }
+
+    /* ─── FADE-IN OBSERVER ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+    .reveal-delay-6 { transition-delay: 0.6s; }
+    .reveal-delay-7 { transition-delay: 0.7s; }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      height: var(--nav-h);
+      display: flex; align-items: center;
+      background: rgba(10,10,10,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--trans);
+    }
+    nav.scrolled { border-color: var(--black-line); }
+    nav .container { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.65rem;
+    }
+    .nav-logo-icon {
+      width: 38px; height: 38px;
+      background: var(--gold);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-icon svg { width: 22px; height: 22px; }
+    .nav-logo-text {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    .nav-logo-text span { color: var(--gold); }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 2.2rem;
+    }
+    .nav-links a {
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      position: relative;
+      padding-bottom: 4px;
+      transition: color var(--trans);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 100%;
+      height: 1px; background: var(--gold);
+      transition: right var(--trans);
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { right: 0; }
+
+    .nav-cta {
+      padding: 0.5rem 1.2rem;
+      background: var(--gold);
+      color: var(--black) !important;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: 0.82rem !important;
+      transition: background var(--trans), transform var(--trans) !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--gold-light) !important; transform: translateY(-1px); }
+
+    /* Hamburger */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 6px; border: none; background: none;
+    }
+    .hamburger span {
+      display: block; width: 26px; height: 2px;
+      background: var(--white);
+      transition: var(--trans);
+      transform-origin: left center;
+    }
+    .hamburger.open span:nth-child(1) { transform: rotate(45deg) translateY(-1px); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translateY(1px); }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed; top: var(--nav-h); left: 0; right: 0;
+      background: var(--black-soft);
+      border-bottom: 1px solid var(--black-line);
+      padding: 1.5rem;
+      z-index: 998;
+      flex-direction: column; gap: 1rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--black-line);
+      transition: color var(--trans);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--gold); }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding-top: var(--nav-h);
+    }
+
+    /* Geometric background */
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: radial-gradient(ellipse 80% 70% at 65% 40%, #1a1200 0%, var(--black) 65%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 1;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    /* Animated scanning line */
+    .hero-scan {
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      animation: scanDown 4s linear infinite;
+      z-index: 2; opacity: 0.6;
+    }
+    @keyframes scanDown {
+      from { top: 0; } to { top: 100%; }
+    }
+
+    /* Corner decorations */
+    .hero-corner {
+      position: absolute; width: 100px; height: 100px;
+      z-index: 2;
+    }
+    .hero-corner.tl { top: 90px; left: 0; border-top: 2px solid var(--gold); border-left: 2px solid var(--gold); }
+    .hero-corner.br { bottom: 0; right: 0; border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold); }
+
+    .hero-content {
+      position: relative; z-index: 3;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 4rem;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 100px;
+      padding: 0.4rem 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge::before {
+      content: ''; width: 6px; height: 6px;
+      border-radius: 50%; background: var(--gold);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1.06;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-title .name { color: var(--gold); display: block; }
+
+    .hero-tagline {
+      font-size: clamp(1rem, 2vw, 1.18rem);
+      color: var(--white-dim);
+      max-width: 440px;
+      margin-bottom: 2.4rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: var(--trans);
+      border: none;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: var(--black);
+    }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.3); }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(201,168,76,0.5);
+      color: var(--gold);
+    }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); transform: translateY(-2px); }
+
+    /* Hero visual — security camera illustration */
+    .hero-visual {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-ring {
+      width: 340px; height: 340px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.15);
+      position: relative;
+      animation: rotateSlow 20s linear infinite;
+    }
+    .hero-ring::before {
+      content: '';
+      position: absolute; inset: 16px;
+      border-radius: 50%;
+      border: 1px dashed rgba(201,168,76,0.2);
+    }
+    @keyframes rotateSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    .hero-shield {
+      position: absolute;
+      width: 190px; height: 190px;
+      animation: none;
+    }
+    /* dot markers on ring */
+    .hero-dot {
+      position: absolute;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 12px var(--gold);
+    }
+    .hero-dot:nth-child(1) { top: -5px; left: 50%; transform: translateX(-50%); }
+    .hero-dot:nth-child(2) { bottom: -5px; left: 50%; transform: translateX(-50%); }
+    .hero-dot:nth-child(3) { left: -5px; top: 50%; transform: translateY(-50%); }
+    .hero-dot:nth-child(4) { right: -5px; top: 50%; transform: translateY(-50%); }
+
+    .hero-stats {
+      display: flex; gap: 2rem;
+      margin-top: 3rem;
+    }
+    .hero-stat strong {
+      display: block;
+      font-family: var(--font-head);
+      font-size: 2rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .hero-stat span {
+      font-size: 0.78rem;
+      color: var(--white-dim);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── TICKER / MARQUEE ─── */
+    .ticker-wrap {
+      overflow: hidden;
+      border-top: 1px solid var(--black-line);
+      border-bottom: 1px solid var(--black-line);
+      background: var(--black-soft);
+      padding: 0.8rem 0;
+    }
+    .ticker-track {
+      display: flex;
+      white-space: nowrap;
+      animation: tickerRun 20s linear infinite;
+    }
+    @keyframes tickerRun {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .ticker-item {
+      padding: 0 2.5rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .ticker-item::after {
+      content: '◆'; color: var(--gold); font-size: 0.5rem;
+    }
+
+    /* ─── PRODUCTS ─── */
+    #products { padding: 7rem 0; }
+
+    .products-header {
+      display: flex; flex-wrap: wrap;
+      justify-content: space-between; align-items: flex-end;
+      margin-bottom: 4rem; gap: 1.5rem;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background: var(--black-card);
+      border: 1px solid var(--black-line);
+      border-radius: 10px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      transition: border-color var(--trans), transform var(--trans), box-shadow var(--trans);
+    }
+    .product-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transform: scaleX(0);
+      transition: transform var(--trans);
+    }
+    .product-card:hover {
+      border-color: rgba(201,168,76,0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.1);
+    }
+    .product-card:hover::before { transform: scaleX(1); }
+
+    .product-icon-wrap {
+      width: 62px; height: 62px;
+      border-radius: 12px;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.2);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.4rem;
+      transition: background var(--trans);
+    }
+    .product-card:hover .product-icon-wrap { background: rgba(201,168,76,0.16); }
+    .product-icon-wrap svg { width: 30px; height: 30px; color: var(--gold); }
+
+    .product-name {
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      margin-bottom: 0.6rem;
+      color: var(--white);
+    }
+    .product-desc {
+      font-size: 0.86rem;
+      color: var(--white-dim);
+      line-height: 1.65;
+    }
+    .product-tag {
+      display: inline-block;
+      margin-top: 1.2rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 100px;
+      border: 1px solid rgba(201,168,76,0.25);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+
+    /* ─── ABOUT ─── */
+    #about {
+      padding: 7rem 0;
+      background: var(--black-soft);
+      border-top: 1px solid var(--black-line);
+      border-bottom: 1px solid var(--black-line);
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+    .about-frame {
+      width: 100%; aspect-ratio: 4/3;
+      background: var(--black-card);
+      border: 1px solid var(--black-line);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .about-pattern {
+      position: absolute; inset: 0;
+      background-image:
+        repeating-linear-gradient(45deg, rgba(201,168,76,0.04) 0, rgba(201,168,76,0.04) 1px, transparent 0, transparent 50%);
+      background-size: 20px 20px;
+    }
+    .about-frame-content {
+      position: relative; z-index: 1;
+      text-align: center;
+    }
+    .about-frame svg { width: 80px; height: 80px; color: var(--gold); opacity: 0.6; }
+    .about-frame p { margin-top: 1rem; font-size: 0.85rem; color: var(--white-dim); letter-spacing: 0.1em; }
+
+    .about-badge-tl, .about-badge-br {
+      position: absolute;
+      background: var(--black-card);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+      z-index: 2;
+    }
+    .about-badge-tl { top: -20px; left: -20px; }
+    .about-badge-br { bottom: -20px; right: -20px; }
+    .about-badge-tl strong, .about-badge-br strong {
+      display: block; font-size: 1.3rem;
+      font-family: var(--font-head); color: var(--gold);
+    }
+    .about-badge-tl span, .about-badge-br span {
+      font-size: 0.72rem; color: var(--white-dim); white-space: nowrap;
+    }
+
+    .about-text p {
+      color: var(--white-dim);
+      margin-bottom: 1.2rem;
+      font-size: 0.96rem;
+      line-height: 1.8;
+    }
+
+    .about-pillars {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem; margin-top: 2rem;
+    }
+    .about-pillar {
+      background: var(--black-card);
+      border: 1px solid var(--black-line);
+      border-radius: 8px;
+      padding: 1rem;
+      transition: border-color var(--trans);
+    }
+    .about-pillar:hover { border-color: rgba(201,168,76,0.4); }
+    .about-pillar svg { width: 20px; height: 20px; color: var(--gold); margin-bottom: 0.5rem; }
+    .about-pillar strong { display: block; font-size: 0.88rem; margin-bottom: 0.2rem; }
+    .about-pillar span { font-size: 0.78rem; color: var(--white-dim); }
+
+    /* ─── WHY US ─── */
+    #why { padding: 6rem 0; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .why-card {
+      text-align: center; padding: 2.5rem 1.5rem;
+      border: 1px solid var(--black-line);
+      border-radius: 10px;
+      background: var(--black-card);
+      transition: var(--trans);
+    }
+    .why-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-3px); }
+    .why-card svg { width: 36px; height: 36px; color: var(--gold); margin-bottom: 1rem; }
+    .why-card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+    .why-card p { font-size: 0.82rem; color: var(--white-dim); line-height: 1.6; }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      padding: 7rem 0;
+      background: var(--black-soft);
+      border-top: 1px solid var(--black-line);
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem; align-items: start;
+    }
+
+    .contact-info { }
+    .contact-item {
+      display: flex; gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+    }
+    .contact-icon {
+      width: 46px; height: 46px; flex-shrink: 0;
+      border-radius: 10px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.2);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .contact-icon svg { width: 20px; height: 20px; color: var(--gold); }
+    .contact-item-text strong {
+      display: block; font-size: 0.78rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold-dim); margin-bottom: 0.25rem;
+    }
+    .contact-item-text a, .contact-item-text p {
+      color: var(--white); font-size: 0.96rem;
+      transition: color var(--trans);
+    }
+    .contact-item-text a:hover { color: var(--gold); }
+
+    .contact-socials { display: flex; gap: 0.8rem; margin-top: 2.5rem; }
+    .social-btn {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.6rem 1.1rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--black-line);
+      font-size: 0.82rem;
+      transition: var(--trans);
+      background: var(--black-card);
+    }
+    .social-btn svg { width: 18px; height: 18px; }
+    .social-btn.instagram:hover { border-color: #E1306C; color: #E1306C; }
+    .social-btn.whatsapp:hover { border-color: #25D366; color: #25D366; }
+
+    /* CTA Card */
+    .contact-cta-card {
+      background: var(--black-card);
+      border: 1px solid var(--black-line);
+      border-radius: 12px;
+      padding: 3rem;
+      position: relative; overflow: hidden;
+    }
+    .contact-cta-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold-dim), var(--gold), var(--gold-dim));
+    }
+    .contact-cta-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.7rem; margin-bottom: 0.8rem;
+    }
+    .contact-cta-card p {
+      color: var(--white-dim); margin-bottom: 2rem; font-size: 0.92rem; line-height: 1.7;
+    }
+    .contact-cta-card .btn { width: 100%; justify-content: center; font-size: 1rem; padding: 1rem; }
+    .wa-icon { width: 22px; height: 22px; }
+
+    .contact-hours {
+      margin-top: 2rem;
+      padding: 1.2rem;
+      background: rgba(201,168,76,0.05);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 8px;
+      font-size: 0.82rem;
+    }
+    .contact-hours strong { display: block; color: var(--gold); margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+    .contact-hours p { color: var(--white-dim); line-height: 1.7; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--black-line);
+      padding: 3rem 0 2rem;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+    .footer-brand .nav-logo { margin-bottom: 1rem; }
+    .footer-brand p { font-size: 0.84rem; color: var(--white-dim); line-height: 1.7; max-width: 280px; }
+
+    .footer-col h4 {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 0.65rem; }
+    .footer-col ul li a {
+      font-size: 0.86rem;
+      color: var(--white-dim);
+      transition: color var(--trans);
+    }
+    .footer-col ul li a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--black-line);
+      padding-top: 1.5rem;
+      display: flex; flex-wrap: wrap;
+      justify-content: space-between; align-items: center;
+      gap: 1rem;
+      font-size: 0.78rem; color: var(--white-dim);
+    }
+    .footer-bottom a { color: var(--gold-dim); transition: color var(--trans); }
+    .footer-bottom a:hover { color: var(--gold); }
+
+    /* ─── BACK TO TOP ─── */
+    #back-top {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 900;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: none;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      opacity: 0; pointer-events: none;
+      transition: opacity var(--trans), transform var(--trans);
+    }
+    #back-top.visible { opacity: 1; pointer-events: all; }
+    #back-top:hover { transform: translateY(-3px); }
+    #back-top svg { width: 18px; height: 18px; color: var(--black); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero-content { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .about-visual { display: none; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    @media (max-width: 600px) {
+      .footer-inner { grid-template-columns: 1fr; }
+      .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+      .products-header { flex-direction: column; align-items: flex-start; }
+      .about-pillars { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════ NAVBAR -->
+<nav id="navbar">
+  <div class="container">
+    <a href="#hero" class="nav-logo" aria-label="MahusTech Home">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <span class="nav-logo-text">Mahus<span>Tech</span></span>
+    </a>
+
+    <ul class="nav-links" role="navigation" aria-label="Main navigation">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://wa.me/255000000000" target="_blank" rel="noopener" class="nav-cta">Get Quote</a></li>
+    </ul>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <a href="#products" class="mob-link">Products</a>
+  <a href="#about" class="mob-link">About</a>
+  <a href="#why" class="mob-link">Why Us</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="https://wa.me/255000000000" target="_blank" rel="noopener" class="mob-link" style="color:var(--gold);">Get a Free Quote →</a>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════ HERO -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-scan" aria-hidden="true"></div>
+  <div class="hero-corner tl" aria-hidden="true"></div>
+  <div class="hero-corner br" aria-hidden="true"></div>
+
+  <div class="container hero-content">
+    <!-- Left -->
+    <div>
+      <div class="hero-badge" aria-label="Company status">Tanzania's Trusted Security Partner</div>
+      <h1 class="hero-title">
+        Secure Your World<br>with <span class="name">MahusTech</span>
+      </h1>
+      <p class="hero-tagline">
+        Professional electronics, ICT, and security systems for homes, businesses, and institutions across Tanzania. Trusted expertise. Unmatched reliability.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/255000000000" target="_blank" rel="noopener" class="btn btn-gold" aria-label="Contact us on WhatsApp">
+          <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.554 4.122 1.523 5.854L.057 23.5l5.825-1.527A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-4.996-1.364l-.357-.212-3.455.906.921-3.37-.232-.368A9.782 9.782 0 012.182 12C2.182 6.584 6.584 2.182 12 2.182S21.818 6.584 21.818 12 17.416 21.818 12 21.818z"/></svg>
+          WhatsApp Us
+        </a>
+        <a href="#products" class="btn btn-outline">
+          Our Products
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-stats" role="list">
+        <div class="hero-stat" role="listitem">
+          <strong>500+</strong>
+          <span>Installations Done</span>
+        </div>
+        <div class="hero-stat" role="listitem">
+          <strong>7+</strong>
+          <span>Product Categories</span>
+        </div>
+        <div class="hero-stat" role="listitem">
+          <strong>24/7</strong>
+          <span>Support Available</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Visual -->
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-ring">
+        <div class="hero-dot"></div>
+        <div class="hero-dot"></div>
+        <div class="hero-dot"></div>
+        <div class="hero-dot"></div>
+      </div>
+      <div class="hero-shield">
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Shield body -->
+          <path d="M100 12 L175 40 L175 100 C175 148 100 185 100 185 C100 185 25 148 25 100 L25 40 Z" fill="#161616" stroke="#C9A84C" stroke-width="2"/>
+          <!-- Inner shield accent -->
+          <path d="M100 32 L158 55 L158 100 C158 138 100 168 100 168 C100 168 42 138 42 100 L42 55 Z" fill="none" stroke="rgba(201,168,76,0.25)" stroke-width="1.5"/>
+          <!-- CCTV Camera icon -->
+          <rect x="68" y="78" width="50" height="32" rx="5" fill="#C9A84C" opacity="0.9"/>
+          <path d="M118 88 L138 80 L138 108 L118 100 Z" fill="#C9A84C" opacity="0.9"/>
+          <circle cx="83" cy="94" r="6" fill="#161616"/>
+          <circle cx="83" cy="94" r="3" fill="#C9A84C"/>
+          <!-- Signal lines -->
+          <path d="M60 68 Q100 58 140 68" stroke="rgba(201,168,76,0.4)" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+          <path d="M52 60 Q100 48 148 60" stroke="rgba(201,168,76,0.2)" stroke-width="1" fill="none" stroke-dasharray="4 3"/>
+          <!-- Lock bottom -->
+          <rect x="88" y="125" width="24" height="20" rx="4" fill="rgba(201,168,76,0.2)" stroke="#C9A84C" stroke-width="1.5"/>
+          <path d="M93 125 L93 119 Q100 113 107 119 L107 125" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+          <circle cx="100" cy="135" r="3" fill="#C9A84C"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════ TICKER -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-track" id="ticker">
+    <span class="ticker-item">Electric Fence</span>
+    <span class="ticker-item">CCTV Camera</span>
+    <span class="ticker-item">Gate Motor</span>
+    <span class="ticker-item">Alarm System</span>
+    <span class="ticker-item">Video Doorbell</span>
+    <span class="ticker-item">GSM Alarm</span>
+    <span class="ticker-item">Fire Alarm</span>
+    <span class="ticker-item">Professional Installation</span>
+    <span class="ticker-item">24/7 Support</span>
+    <span class="ticker-item">Tanzania Coverage</span>
+    <!-- Duplicate for seamless loop -->
+    <span class="ticker-item">Electric Fence</span>
+    <span class="ticker-item">CCTV Camera</span>
+    <span class="ticker-item">Gate Motor</span>
+    <span class="ticker-item">Alarm System</span>
+    <span class="ticker-item">Video Doorbell</span>
+    <span class="ticker-item">GSM Alarm</span>
+    <span class="ticker-item">Fire Alarm</span>
+    <span class="ticker-item">Professional Installation</span>
+    <span class="ticker-item">24/7 Support</span>
+    <span class="ticker-item">Tanzania Coverage</span>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════ PRODUCTS -->
+<section id="products" aria-labelledby="products-heading">
+  <div class="container">
+    <div class="products-header">
+      <div class="reveal">
+        <span class="section-label">What We Offer</span>
+        <h2 class="section-title" id="products-heading">Our <span>Products</span> &amp; Services</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <a href="https://wa.me/255000000000?text=Hello%20MahusTech%2C%20I%20need%20a%20quote%20for%20your%20products." target="_blank" rel="noopener" class="btn btn-outline">
+          Request Custom Quote →
+        </a>
+      </div>
+    </div>
+
+    <div class="products-grid">
+
+      <!-- Electric Fence -->
+      <article class="product-card reveal reveal-delay-1">
+        <div class="product-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3 class="product-name">Electric Fence</h3>
+        <p class="product-desc">High-voltage perimeter security that deters intruders instantly. Suitable for homes, farms, and commercial properties.</p>
+        <span class="product-tag">Perimeter Security</span>
+      </article>
+
+      <!-- CCTV Camera -->
+      <article class="product-card reveal reveal-delay-2">
+        <div class="product-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l4.553-2.276A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
+        </div>
+        <h3 class="product-name">CCTV Camera</h3>
+        <p class="product-desc">Full HD and 4K surveillance systems with remote monitoring, night vision, and cloud or local storage options.</p>
+        <span class="product-tag">Surveillance</span>
+      </article>
+
+      <!-- Gate Motor -->
+      <article class="product-card reveal reveal-delay-3">
+        <div class="product-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 6v12M2 12h4M18 12h4"/></svg>
+        </div>
+        <h3 class="product-name">Gate Motor</h3>
+        <p class="product-desc">Automated sliding and swing gate motors for residential and commercial use, with remote and app control.</p>
+        <span class="product-tag">Access Control</span>
+      </article>
+
+      <!-- Alarm System -->
+      <article class="product-card reveal reveal-delay-4">
+        <div class="product-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
+        </div>
+        <h3 class="product-name">Alarm System</h3>
+        <p class="product-desc">Wired and wireless intruder alarm systems with motion sensors, sirens, and instant SMS/call alerts.</p>
+        <span class="product-tag">Intrusion Detection</span>
+      </article>
+
+      <!-- Video Doorbell -->
+      <article class="product-card reveal reveal-delay-5">
+        <div class="product-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><circle cx="12" cy="16" r="1.5" fill="currentColor"/><path d="M9 6h6"/></svg>
+        </div>
+        <h3 class="product-name">Video Doorbell</h3>
+        <p class="product-desc">Smart doorbells with real-time video, two-way audio, and motion detection — see visitors from anywhere.</p>
+        <span class="product-tag">Smart Home</span>
+      </article>
+
+      <!-- GSM Alarm -->
+      <article class="product-card reveal reveal-delay-6">
+        <div class="product-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1.5 8.5s3-5 10.5-5 10.5 5 10.5 5M5 12s1.5-2.5 7-2.5S19 12 19 12M8.5 15.5s1-1.5 3.5-1.5 3.5 1.5 3.5 1.5M12 19v.01"/></svg>
+        </div>
+        <h3 class="product-name">GSM Alarm System</h3>
+        <p class="product-desc">SIM-card based alarm systems that send alerts via SMS and calls — no internet required, works anywhere in Tanzania.</p>
+        <span class="product-tag">Remote Alert</span>
+      </article>
+
+      <!-- Fire Alarm -->
+      <article class="product-card reveal reveal-delay-7">
+        <div class="product-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg>
+        </div>
+        <h3 class="product-name">Fire Alarm</h3>
+        <p class="product-desc">Smoke and heat detection systems with automatic alerts and sirens, ensuring early warning for maximum safety.</p>
+        <span class="product-tag">Fire Safety</span>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════ ABOUT -->
+<section id="about" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="about-inner">
+
+      <div class="about-visual reveal" aria-hidden="true">
+        <div class="about-frame">
+          <div class="about-pattern"></div>
+          <div class="about-frame-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            <p>Trusted Security Partner</p>
+          </div>
+        </div>
+        <div class="about-badge-tl">
+          <strong>2016</strong>
+          <span>Founded in Tanzania</span>
+        </div>
+        <div class="about-badge-br">
+          <strong>100%</strong>
+          <span>Client Satisfaction</span>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <span class="section-label reveal">Who We Are</span>
+        <h2 class="section-title reveal reveal-delay-1" id="about-heading">Protecting Tanzania,<br><span>One Property at a Time</span></h2>
+        <div class="divider reveal reveal-delay-2"></div>
+        <p class="reveal reveal-delay-2">
+          MahusTech is a Tanzanian-based electronics, ICT, and security systems company committed to delivering professional-grade security solutions for homes, businesses, and institutions.
+        </p>
+        <p class="reveal reveal-delay-3">
+          We combine cutting-edge technology with expert local knowledge to design, supply, and install customized security systems that keep what matters most safe — day and night.
+        </p>
+        <p class="reveal reveal-delay-4">
+          From electric fences to intelligent CCTV networks, our team ensures every installation meets the highest standards of quality, reliability, and performance.
+        </p>
+
+        <div class="about-pillars">
+          <div class="about-pillar reveal reveal-delay-3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <strong>Expert Installation</strong>
+            <span>Certified technicians</span>
+          </div>
+          <div class="about-pillar reveal reveal-delay-4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <strong>Premium Products</strong>
+            <span>Quality-tested brands</span>
+          </div>
+          <div class="about-pillar reveal reveal-delay-5">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <strong>24/7 Support</strong>
+            <span>Always available</span>
+          </div>
+          <div class="about-pillar reveal reveal-delay-6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            <strong>Local Expertise</strong>
+            <span>Tanzania-focused</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════ WHY US -->
+<section id="why" aria-labelledby="why-heading">
+  <div class="container">
+    <div style="text-align:center; max-width: 560px; margin: 0 auto;">
+      <span class="section-label reveal">Our Advantage</span>
+      <h2 class="section-title reveal reveal-delay-1" id="why-heading">Why Choose <span>MahusTech?</span></h2>
+      <div class="divider reveal reveal-delay-2" style="margin-left: auto; margin-right: auto; background: linear-gradient(90deg, transparent, var(--gold), transparent);"></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal reveal-delay-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <h3>Proven Reliability</h3>
+        <p>Hundreds of successful installations across residential, commercial, and industrial sites in Tanzania.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        <h3>Tailored Solutions</h3>
+        <p>Every system is designed to fit your specific property, budget, and security needs — no one-size-fits-all.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <h3>Latest Technology</h3>
+        <p>We source and install only modern, high-performance equipment from trusted global manufacturers.</p>
+      </div>
+      <div class="why-card reveal reveal-delay-4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.12 1.18 2 2 0 012.11 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-.45a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        <h3>Fast Response</h3>
+        <p>Quick quotation, swift installation, and rapid after-sales support when you need it most.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════ CONTACT -->
+<section id="contact" aria-labelledby="contact-heading">
+  <div class="container">
+    <div style="margin-bottom: 4rem;">
+      <span class="section-label reveal">Get In Touch</span>
+      <h2 class="section-title reveal reveal-delay-1" id="contact-heading">Let's Secure Your<br><span>Property Today</span></h2>
+      <div class="divider reveal reveal-delay-2"></div>
+    </div>
+
+    <div class="contact-inner">
+
+      <!-- Info -->
+      <div>
+        <div class="contact-item reveal reveal-delay-1">
+          <div class="contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.12 1.18 2 2 0 012.11 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-.45a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <strong>Phone / WhatsApp</strong>
+            <a href="tel:+255000000000">+255 000 000 000</a>
+          </div>
+        </div>
+
+        <div class="contact-item reveal reveal-delay-2">
+          <div class="contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <strong>Location</strong>
+            <p>Dar es Salaam, Tanzania</p>
+          </div>
+        </div>
+
+        <div class="contact-item reveal reveal-delay-3">
+          <div class="contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <strong>Instagram</strong>
+            <a href="https://instagram.com/mahustech" target="_blank" rel="noopener">@mahustech</a>
+          </div>
+        </div>
+
+        <div class="contact-socials reveal reveal-delay-4">
+          <a href="https://instagram.com/mahustech" target="_blank" rel="noopener" class="social-btn instagram" aria-label="Follow MahusTech on Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+          <a href="https://wa.me/255000000000" target="_blank" rel="noopener" class="social-btn whatsapp" aria-label="Chat with MahusTech on WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.554 4.122 1.523 5.854L.057 23.5l5.825-1.527A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-4.996-1.364l-.357-.212-3.455.906.921-3.37-.232-.368A9.782 9.782 0 012.182 12C2.182 6.584 6.584 2.182 12 2.182S21.818 6.584 21.818 12 17.416 21.818 12 21.818z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- CTA Card -->
+      <div class="reveal reveal-delay-2">
+        <div class="contact-cta-card">
+          <h3>Ready to Get Started?</h3>
+          <p>Contact us today for a free consultation and quotation. Our security experts will assess your property and recommend the best solution for your needs and budget.</p>
+          <a href="https://wa.me/255000000000?text=Hello%20MahusTech%2C%20I%20would%20like%20to%20get%20a%20free%20security%20consultation." target="_blank" rel="noopener" class="btn btn-gold" aria-label="Message MahusTech on WhatsApp">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.554 4.122 1.523 5.854L.057 23.5l5.825-1.527A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 01-4.996-1.364l-.357-.212-3.455.906.921-3.37-.232-.368A9.782 9.782 0 012.182 12C2.182 6.584 6.584 2.182 12 2.182S21.818 6.584 21.818 12 17.416 21.818 12 21.818z"/></svg>
+            Chat With Us on WhatsApp
+          </a>
+          <div class="contact-hours">
+            <strong>Business Hours</strong>
+            <p>Monday – Friday: 8:00 AM – 6:00 PM<br>Saturday: 9:00 AM – 4:00 PM<br>Emergency support available 24/7</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════ FOOTER -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo" aria-label="MahusTech">
+          <div class="nav-logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span class="nav-logo-text">Mahus<span>Tech</span></span>
+        </a>
+        <p>Tanzania's trusted partner for professional electronics, ICT, and security system solutions. Protecting homes and businesses since 2016.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#products">Electric Fence</a></li>
+          <li><a href="#products">CCTV Camera</a></li>
+          <li><a href="#products">Gate Motor</a></li>
+          <li><a href="#products">Alarm System</a></li>
+          <li><a href="#products">Video Doorbell</a></li>
+          <li><a href="#products">GSM Alarm</a></li>
+          <li><a href="#products">Fire Alarm</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#why">Why MahusTech</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="https://instagram.com/mahustech" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://wa.me/255000000000" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> MahusTech. All rights reserved. Dar es Salaam, Tanzania.</p>
+      <p>Built with ❤ for a safer Tanzania &nbsp;|&nbsp; <a href="https://instagram.com/mahustech" target="_blank" rel="noopener">@mahustech</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="back-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+
+<!-- ═══════════════════════════════════════════════ JAVASCRIPT -->
+<script>
+  // ── Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ── Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  const backTop = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      navbar.classList.add('scrolled');
+      backTop.classList.add('visible');
+    } else {
+      navbar.classList.remove('scrolled');
+      backTop.classList.remove('visible');
+    }
+  }, { passive: true });
+
+  // ── Back to top
+  backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // ── Hamburger / Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', String(open));
+  });
+  // Close on link click
+  document.querySelectorAll('.mob-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // ── Scroll reveal with IntersectionObserver
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
